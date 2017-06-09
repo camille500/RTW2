@@ -23,6 +23,8 @@ const allStocks = ['AAPL', 'AMZN', 'GOOGL', 'IBM', 'INTC', 'MSFT', 'FB', 'TSLA',
 const MongoClient = require('mongodb').MongoClient;
 const dbConfig = process.env.MONGODB_URI;
 
+/* CONNECT WEBSOCKET
+--------------------------------------------------------------- */
 io.on('connection', function(socket) {
   console.log('connected')
 });
@@ -36,19 +38,29 @@ MongoClient.connect(dbConfig, (err, database) => {
   /* UPDATE STOCK DATA EVERY 1 MINUTE AND SAVE TO MONGODB
   --------------------------------------------------------------- */
   setInterval(function(){
+    /* LOOP TROUGH ALL STOCKS AND COMPARE ACTUAL TO DB
+    --------------------------------------------------------------- */
     allStocks.forEach(function(stock) {
       const url = `${process.env.STOCKAPIURL}${process.env.STOCKGLOBAL}symbol=${stock}${process.env.STOCKAPIKEY}`;
+      /* REQUEST TO API FOR ACTUAL STOCK DATA FOR EACH STOCK
+      --------------------------------------------------------------- */
       request(url, function (error, response, body) {
         let requestData = JSON.parse(body)[process.env.MAIN];
+        /* SEARCH FOR STOCK IN DATABASE
+        --------------------------------------------------------------- */
         collection.findOne({
           ticker: stock
         }, function(err, ticker) {
           console.log((ticker.actual == requestData[process.env.LATEST]) + ' : ' + ticker.ticker)
+          /* CHECK IF API RATE CORRESPONDS TO RATE IN DB
+          --------------------------------------------------------------- */
           if (ticker.actual != requestData[process.env.LATEST]) {
             let lastValue = ticker.actual;
-            console.log(ticker.actual)
-            let dbData = {ticker: stock, actual: requestData[process.env.LATEST], last: lastValue}
+            const percentageChange = ((ticker.actual - requestData[process.env.OPEN]) / requestData[process.env.OPEN]) * 100
+            let dbData = {type: 'stock', ticker: stock, actual: requestData[process.env.LATEST], last: lastValue, open: requestData[process.env.OPEN], difference: percentageChange.toFixed(2)}
             console.log(dbData)
+            /* UPDATE DB WITH NEWEST RATINGS IF SO
+            --------------------------------------------------------------- */
             collection.update({ticker: stock}, dbData, {upsert:true}, function(err, doc) {
              io.emit('stock change', dbData)
              if (err) return res.send(500, {error: err});
@@ -58,7 +70,7 @@ MongoClient.connect(dbConfig, (err, database) => {
       });
     });
     console.log('------------------')
-  }, 30000);
+  }, 10000);
 });
 
 /* CONFIGURE EXPRESS SESSION

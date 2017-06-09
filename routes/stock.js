@@ -13,15 +13,13 @@ const request = require('request');
 
 /* INDEX ROUTE
 --------------------------------------------------------------- */
-router.get('/', function(req, res) {
+router.get('/', findAll, function(req, res) {
   res.render('stock/index');
 });
 
 router.get('/detail/:ticker', function(req, res) {
   const ticker = req.params.ticker;
   const url = `${process.env.STOCKAPIURL}${process.env.STOCKGLOBAL}symbol=${ticker}${process.env.STOCKAPIKEY}`;
-  console.log(db)
-  console.log(url)
   request(url, function (error, response, body) {
       const data = JSON.parse(body)[process.env.MAIN];
       res.locals.latest = data[process.env.LATEST];
@@ -30,14 +28,15 @@ router.get('/detail/:ticker', function(req, res) {
   });
 });
 
-// const getSingleData = (ticker) => {
-//   request(url, function (error, response, body) {
-//     const data = JSON.parse(body.substring(4));
-//     // console.log(data);
-//     return data
-//   });
-//   return test
-// }
+function findAll(req, res, next) {
+  const collection = db.collection('stock');
+  collection.find({ "type": "stock" }, function(err, targets) {
+    targets.forEach(function(d) {
+      console.log(d)
+    })
+  });
+  next();
+}
 
 /* EXPORT ROUTER
 --------------------------------------------------------------- */

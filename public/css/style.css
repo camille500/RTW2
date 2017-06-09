@@ -109,70 +109,21 @@ main {
   text-decoration: none;
 }
 
-.logreg_form .register-form {
-  display: none;
+/* STOCKS */
+.allStocks {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-.error {
-  color: rgb(213, 43, 43);
-  font-size: 1em;
-  font-weight: 700;
+section.company {
+  max-width: 10%;
+  padding: 2em;
+  text-align: center;
+  margin: 1em;
+  background-color: #f1f1f1;
 }
 
-/* Twitter
----------------------------------------- */
-main.twitter {
-  /*text-align: center;*/
-}
-
-ul.allTweets {
-    max-width: 40em;
-    height: 30em;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    overflow: auto;
-    background-color: #de4949;
-    padding: 3em;
-    padding-top: 1em;
-}
-
-ul.allTweets li {
-  list-style: none;
-  margin-bottom: 1.2em;
-  padding: .5em;
-  background-color: white;
-}
-
-.twitterLogin {
-  padding: .75em 1em;
-  text-decoration: none;
-  background-color: #5AADEB;
-  color: white;
-  margin-top: 2em;
-  display: block;
-}
-
-.maxBtnWidth {
-  max-width: 10em;
-}
-
-/* D3
----------------------------------------- */
-.bar {
-  fill: rgb(205, 61, 56);
-}
-
-.bar:hover {
-  fill: rgb(50, 55, 99);
-}
-
-.axis {
-  font-size: 1em;
-}
-
-.axis path,
-.axis line {
-  stroke: #000;
-  shape-rendering: crispEdges;
+section.company > img {
+  max-width: 100%;
 }
