@@ -1,0 +1,38 @@
+{
+  "name": "rtw-final",
+  "version": "1.0.0",
+  "description": "Final assignment for Real Time Web at the Minor Web Development",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://camille500@github.com/camille500/RTW2.git"
+  },
+  "author": "Camille Sébastien Niessen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/camille500/RTW2/issues"
+  },
+  "homepage": "https://github.com/camille500/RTW2#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.6.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "http": "0.0.0",
+    "mongodb": "^2.2.28",
+    "oauth": "^0.9.15",
+    "password-hash": "^1.2.2",
+    "path": "^0.12.7",
+    "request": "^2.81.0",
+    "socket.io": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
