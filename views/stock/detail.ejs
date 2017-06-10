@@ -5,4 +5,11 @@
   <p>Latest price: <%= latest %></p>
   <p>Openings price: <%= open %></p>
 
+  <p>Jouw saldo: <%= user.saldo %></p>
+
+  <form method="post">
+    <input type="number" name="amount" placeholder="Maximaal <%= Math.floor(user.saldo / latest) %>" max="<%= user.saldo / latest %>" />
+    <input type="submit" value="Kopen" />
+  </form>
+
 <%- include('../partials/footer.ejs') %>

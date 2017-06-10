@@ -1,71 +1,71 @@
 <%- include('../partials/header.ejs') %>
 
-  <h1>Stockpage</h1>
+  <h1 class="center">Stockpage</h1>
+  <p class="center">De percentage's zijn ten opzichte van de openingswaarde</p>
 
   <div class="allStocks">
     <section class="company">
       <img src="/images/logos/facebook.png" />
-      <span id="FB">0</span>
+      <span id="FB"><%= stock.FB %>%</span>
+      <a href="/stock/detail/FB"></a>
     </section>
     <section class="company">
       <img src="/images/logos/twitter.png" />
-      <span id="TWTR">0</span>
+      <span id="TWTR"><%= stock.TWTR %>%</span>
+      <a href="/stock/detail/TWTR"></a>
     </section>
     <section class="company">
       <img src="/images/logos/google.jpeg" />
-      <span id="GOOGL">0</span>
+      <span id="GOOGL"><%= stock.GOOGL %>%</span>
+      <a href="/stock/detail/GOOGL"></a>
     </section>
     <section class="company">
       <img src="/images/logos/tripadvisor.png" />
-      <span id="TRIP">0</span>
+      <span id="TRIP"><%= stock.TRIP %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/apple.png" />
-      <span id="AAPL">0</span>
+      <span id="AAPL"><%= stock.AAPL %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/ibm.png" />
-      <span id="IBM">0</span>
+      <span id="IBM"><%= stock.IBM %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/tesla.png" />
-      <span id="TSLA">0</span>
+      <span id="TSLA"><%= stock.TSLA %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/netflix.png" />
-      <span id="NFLX">0</span>
-    </section>
-    <section class="company">
-      <img src="/images/logos/facebook.png" />
-      <span id="FB">0</span>
+      <span id="NFLX"><%= stock.NFLX %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/intel.png" />
-      <span id="INTC">0</span>
+      <span id="INTC"><%= stock.INTC %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/adobe.png" />
-      <span id="ADBE">0</span>
+      <span id="ADBE"><%= stock.ADBE %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/microsoft.png" />
-      <span id="MSFT">0</span>
+      <span id="MSFT"><%= stock.MSFT %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/ebay.png" />
-      <span id="EBAY">0</span>
+      <span id="EBAY"><%= stock.EBAY %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/yahoo.png" />
-      <span id="YHOO">0</span>
+      <span id="YHOO"><%= stock.YHOO %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/activision.png" />
-      <span id="ATVI">0</span>
+      <span id="ATVI"><%= stock.ATVI %>%</span>
     </section>
     <section class="company">
       <img src="/images/logos/amazon.png" />
-      <span id="AMZN">0</span>
+      <span id="AMZN"><%= stock.AMZN %>%</span>
     </section>
   </div>
 

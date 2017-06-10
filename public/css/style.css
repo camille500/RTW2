@@ -110,13 +110,19 @@ main {
 }
 
 /* STOCKS */
+.center {
+  text-align: center;
+}
+
 .allStocks {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
 }
 
 section.company {
+  position: relative;
   max-width: 10%;
   padding: 2em;
   text-align: center;
@@ -124,6 +130,20 @@ section.company {
   background-color: #f1f1f1;
 }
 
+section.company > span {
+  display: block;
+  margin-top: 1em;
+}
+
 section.company > img {
   max-width: 100%;
+}
+
+.company a:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
 }

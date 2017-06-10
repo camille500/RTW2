@@ -5,11 +5,16 @@
   socket.on('stock change', function(data) {
     console.log(data)
     const element = document.getElementById(data.ticker);
-    element.style.color = 'red';
+    element.style.fontWeight = 900;
+    if(data.difference <= 0) {
+      element.style.color = 'red';
+    } else {
+      element.style.color = 'green';
+    }
     element.innerHTML = `${data.difference}%`;
     setTimeout(function() {
-      element.style.color = 'black';
-    }, 2000)
+      element.style.fontWeight = 200;
+    }, 2000);
   });
 
 }());

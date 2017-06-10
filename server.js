@@ -45,20 +45,26 @@ MongoClient.connect(dbConfig, (err, database) => {
       /* REQUEST TO API FOR ACTUAL STOCK DATA FOR EACH STOCK
       --------------------------------------------------------------- */
       request(url, function (error, response, body) {
-        let requestData = JSON.parse(body)[process.env.MAIN];
+        let requestData = {};
+        if(body.includes('<') == false) {
+          requestData = JSON.parse(body)[process.env.MAIN];
+        } else {
+          requestData = {
+            '03. Latest Price': 0,
+            '07. Close (Previous Trading Day)': 0
+          }
+        }
         /* SEARCH FOR STOCK IN DATABASE
         --------------------------------------------------------------- */
         collection.findOne({
           ticker: stock
         }, function(err, ticker) {
-          console.log((ticker.actual == requestData[process.env.LATEST]) + ' : ' + ticker.ticker)
           /* CHECK IF API RATE CORRESPONDS TO RATE IN DB
           --------------------------------------------------------------- */
           if (ticker.actual != requestData[process.env.LATEST]) {
             let lastValue = ticker.actual;
-            const percentageChange = ((ticker.actual - requestData[process.env.OPEN]) / requestData[process.env.OPEN]) * 100
+            const percentageChange = ((requestData[process.env.LATEST] - requestData[process.env.OPEN]) / requestData[process.env.OPEN]) * 100
             let dbData = {type: 'stock', ticker: stock, actual: requestData[process.env.LATEST], last: lastValue, open: requestData[process.env.OPEN], difference: percentageChange.toFixed(2)}
-            console.log(dbData)
             /* UPDATE DB WITH NEWEST RATINGS IF SO
             --------------------------------------------------------------- */
             collection.update({ticker: stock}, dbData, {upsert:true}, function(err, doc) {
@@ -69,8 +75,7 @@ MongoClient.connect(dbConfig, (err, database) => {
         });
       });
     });
-    console.log('------------------')
-  }, 10000);
+  }, 5000);
 });
 
 /* CONFIGURE EXPRESS SESSION
