@@ -27,6 +27,10 @@ const dbConfig = process.env.MONGODB_URI;
 --------------------------------------------------------------- */
 io.on('connection', function(socket) {
   console.log('connected')
+
+  socket.on('disconnect', function () {
+    console.log('disconnected')
+  });
 });
 
 /* CONNECT TO MONGODB

@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+
+  <h1>Dashboard van <%= user.username %></h1>
+  <section class="saldo">
+    <p>Je hebt nog €<%= (Number(user.saldo)).toFixed(2) %> om uit te geven.</p>
+  </section>
+
+  <h2>Jouw portfolio</h2>
+
+  <table style="width:100%">
+  <tr>
+    <th>Ticker</th>
+    <th>Aantal</th>
+    <th>Gekocht voor</th>
+    <th>Huidige prijs</th>
+    <th>Verschil</th>
+    <th>Verkopen</th>
+  </tr>
+  <% for (var key in portfolio) { %>
+    <tr>
+      <td><%= portfolio[key].ticker %></td>
+      <td><%= portfolio[key].amount %></td>
+      <td>€<%= (Number(portfolio[key].price)).toFixed(2) %> p.s.</td>
+      <td>€<%= (Number(stock[key][0])).toFixed(2) %> p.s.</td>
+      <td><%= (((Number(stock[key][0]) - (Number(portfolio[key].price)))) / Number(portfolio[key].price) * 100).toFixed(2) %>%</td>
+      <td><a href="/stock/sell/<%= portfolio[key].ticker %>/<%=portfolio[key]['_id']%>">Verkopen</a></td>
+    </tr>
+  <% } %>
+</table>
+
+<a href="/stock">Bekijk aandelen overzicht</a>
+<a href="/account/logout">Uitloggen</a>
+
+
+<%- include('../partials/footer.ejs') %>

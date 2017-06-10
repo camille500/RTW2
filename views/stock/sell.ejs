@@ -1,0 +1,13 @@
+<%- include('../partials/header.ejs') %>
+
+  <h1>Verkopen</h1>
+
+  <p>Je hebt in totaal <%= amount %> aandelen.</p>
+  <p>De huidige prijs bedraagt €<%= sellFor %> per aandeel.</p>
+  <p>Alle aandelen leveren in totaal €<%= total %> op.</p>
+
+  <form method="post">
+    <input type="submit" value="Verkopen" />
+  </form>
+
+<%- include('../partials/footer.ejs') %>

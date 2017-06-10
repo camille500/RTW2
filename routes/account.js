@@ -16,12 +16,6 @@ router.get('/login', function(req, res) {
   res.render('account/login');
 });
 
-/* CHECK FOR SESSION, IF SO GO TO THE STOCK PAGE
---------------------------------------------------------------- */
-router.get('/account', checkForSession, function(req, res) {
-  res.redirect('/stock')
-});
-
 /* RENDER SETUP PAGE IF THERE IS NO ONE CONNECTED TO TWITTER ACCOUNT
 --------------------------------------------------------------- */
 router.get('/setup', checkForSession, function(req, res) {

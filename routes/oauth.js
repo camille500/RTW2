@@ -43,7 +43,7 @@ router.get('/', function(req, res) {
       }, function(err, user) {
         if(user) {
          req.session.user = user;
-         res.redirect('/stock');
+         res.redirect('/stock/dashboard');
        } else {
          res.redirect('/account/setup')
        }

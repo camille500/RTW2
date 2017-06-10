@@ -2,6 +2,11 @@
 
   <h1>Detail</h1>
 
+  <% if(buy == false) { %>
+    <h3>Je bezit dit aandeel al</h3>
+    <p>Ga naar je <a href="/stock/dashboard">dashboard</a> voor de laatste prijzen of om je aandelen te verkopen.</p>
+  <% } else { %>
+
   <p>Latest price: <%= latest %></p>
   <p>Openings price: <%= open %></p>
 
@@ -11,5 +16,7 @@
     <input type="number" name="amount" placeholder="Maximaal <%= Math.floor(user.saldo / latest) %>" max="<%= user.saldo / latest %>" />
     <input type="submit" value="Kopen" />
   </form>
+
+  <% } %>
 
 <%- include('../partials/footer.ejs') %>
