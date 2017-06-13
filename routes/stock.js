@@ -1,3 +1,5 @@
+module.exports = function(io) {
+
 /* LOAD ALL DEPENDENCIES
 --------------------------------------------------------------- */
 const express = require('express');
@@ -17,7 +19,7 @@ router.get('/dashboard', checkForSession, findAll, getPortfolio, function(req, r
     res.locals.user = req.session.user;
     res.locals.portfolio = portfolio;
     res.locals.stock = stock;
-    console.log(portfolio)
+    checkValue();
     res.render('stock/dashboard');
 });
 
@@ -111,6 +113,26 @@ function findAll(req, res, next) {
   }, 2000)
 }
 
+function checkValue() {
+  const collection = db.collection('stock');
+  setInterval(function() {
+    for (var key in portfolio) {
+      collection.find({ "ticker": portfolio[key].ticker }, function(err, singleStock) {
+        singleStock.forEach(function(d) {
+          if (portfolio[d.ticker].price != d.actual) {
+            const difference = (((Number(d.actual) - (Number(portfolio[d.ticker].price)))) / Number(portfolio[d.ticker].price) * 100).toFixed(2)
+            const newPrice = d.actual;
+            const data = [d.ticker, newPrice, difference];
+            io.emit('new price', data)
+          }
+        })
+      });
+    }
+  }, 5000);
+}
+
 /* EXPORT ROUTER
 --------------------------------------------------------------- */
-module.exports = router;
+return router;
+
+}

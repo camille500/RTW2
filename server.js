@@ -112,7 +112,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 /* LOAD ALL ROUTERS
 --------------------------------------------------------------- */
 const indexRouter = require('./routes/index');
-const stockRouter = require('./routes/stock');
+const stockRouter = require('./routes/stock')(io);
 const oAuthRouter = require('./routes/oauth');
 const accountRouter = require('./routes/account');
 

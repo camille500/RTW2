@@ -21,9 +21,9 @@
       <td><%= portfolio[key].ticker %></td>
       <td><%= portfolio[key].amount %></td>
       <td>€<%= (Number(portfolio[key].price)).toFixed(2) %> p.s.</td>
-      <td>€<%= (Number(stock[key][0])).toFixed(2) %> p.s.</td>
-      <td><%= (((Number(stock[key][0]) - (Number(portfolio[key].price)))) / Number(portfolio[key].price) * 100).toFixed(2) %>%</td>
-      <td><a href="/stock/sell/<%= portfolio[key].ticker %>/<%=portfolio[key]['_id']%>">Verkopen</a></td>
+      <td>€<span id="<%=portfolio[key].ticker%>-actual"><%= (Number(stock[key][0])).toFixed(2) %> p.s.</td>
+      <td span id="<%=portfolio[key].ticker%>-difference"><%= (((Number(stock[key][0]) - (Number(portfolio[key].price)))) / Number(portfolio[key].price) * 100).toFixed(2) %>%</td>
+      <td><a href="/stock/sell/<%= portfolio[key].ticker %>/<%=portfolio[key]['_id']%>g">Verkopen</a></td>
     </tr>
   <% } %>
 </table>
