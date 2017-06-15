@@ -177,7 +177,7 @@ module.exports = function(io) {
     });
     setTimeout(function() {
       next();
-    }, 2000)
+    }, 1000)
   }
 
   /* GET ALL LATEST STOCK DATA FROM THE DATABASE
@@ -194,7 +194,7 @@ module.exports = function(io) {
     });
     setTimeout(function() {
       next();
-    }, 2000)
+    }, 1000)
   }
 
   /* CHECK ACTUAL VALUE OF ALL STOCKS IN USERS PORTFOLIO
