@@ -175,9 +175,7 @@ module.exports = function(io) {
         portfolio[result.ticker] = result;
       });
     });
-    setTimeout(function() {
-      next();
-    }, 1000)
+    next();
   }
 
   /* GET ALL LATEST STOCK DATA FROM THE DATABASE
