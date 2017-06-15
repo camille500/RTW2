@@ -31,12 +31,15 @@ router.post('/setup', function(req, res) {
   const hometown = req.body.hometown;
   const email = req.body.email;
   const setupData = {
+    type: 'user',
     username: req.session.data.screen_name,
     fullname: fullname,
     mail: email,
     homeTown: hometown,
     saldo: 100000
   };
+  /* IF USER EXISTS, GO TO THE DASHBOARD. IF NOT, CREATE THE USER
+  --------------------------------------------------------------- */
   userCollection.findOne({
     username: req.session.data.screen_name
   }, function(err, user) {
@@ -56,14 +59,6 @@ router.post('/setup', function(req, res) {
 /* LOGOUT AND DESTROY SESSION
 --------------------------------------------------------------- */
 router.get('/logout', function(req, res) {
-  const collection = db.collection('users');
-  collection.findOne({
-    username: req.session.data.username
-  }, function(err, user) {
-    collection.updateOne(user, {$set: {login: false}}, (error, result) => {
-      if (err) return console.log(err)
-    })
-  })
   req.session.destroy(function() {
     res.redirect('/');
   });

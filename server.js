@@ -29,7 +29,7 @@ io.on('connection', function(socket) {
   console.log('connected')
 
   socket.on('disconnect', function () {
-    console.log('disconnected')
+    io.emit('offline', 'offline')
   });
 });
 
@@ -50,7 +50,7 @@ MongoClient.connect(dbConfig, (err, database) => {
       --------------------------------------------------------------- */
       request(url, function (error, response, body) {
         let requestData = {};
-        if(body.includes('<') == false) {
+        if(JSON.parse(body)) {
           requestData = JSON.parse(body)[process.env.MAIN];
         } else {
           requestData = {

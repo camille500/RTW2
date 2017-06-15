@@ -1,13 +1,15 @@
 <%- include('../partials/header.ejs') %>
 
-  <h1>Verkopen</h1>
+  <main class="detail">
+    <h1>Verkopen</h1>
 
-  <p>Je hebt in totaal <%= amount %> aandelen.</p>
-  <p>De huidige prijs bedraagt €<%= sellFor %> per aandeel.</p>
-  <p>Alle aandelen leveren in totaal €<%= total %> op.</p>
+    <p>Totaal <%= amount %> aandelen.</p>
+    <p>Huidige prijs €<%= sellFor %> per aandeel.</p>
+    <p>Alle aandelen leveren in totaal €<%= Number(total).toFixed(2) %> op.</p>
 
-  <form method="post">
-    <input type="submit" value="Verkopen" />
-  </form>
+    <form method="post">
+      <input type="submit" value="Verkopen" />
+    </form>
+  </main>
 
 <%- include('../partials/footer.ejs') %>

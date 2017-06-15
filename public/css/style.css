@@ -3,7 +3,6 @@
 body {
   font-family: 'Open Sans';
   background: url(/images/bg.png) center center;
-  padding: 1em;
 }
 
 h1 {
@@ -23,10 +22,10 @@ ul {
 
 /* Main
 ---------------------------------------- */
-main {
+/*main {
   padding: 1em;
   background-color: rgba(255, 255, 255, 0.75);
-}
+}*/
 
 /* Login section
 ---------------------------------------- */
@@ -52,6 +51,7 @@ main {
 }
 
 .logreg_form {
+  text-align: center;
   position: relative;
   max-width: 22.5em;
   padding: 2em;
@@ -151,4 +151,149 @@ section.company > img {
 /* DASHBOARD */
 th, td {
   text-align: left;
+}
+
+.mainImage {
+  max-width: 25em;
+  margin-top: 2.5em;
+}
+
+.homepage {
+  text-align: center;
+}
+
+.homepage h1 {
+  margin-top: 1em;
+  text-transform: uppercase;
+}
+
+.homepage p {
+  font-size: 1.2em;
+}
+
+.cta-open {
+  display: block;
+  max-width: 10em;
+  margin: 1.5em auto 0 auto;
+  padding: 1em;
+  font-size: 1.5em;
+  text-decoration: none;
+  background-color: rgb(44, 62, 80);
+  color: white;
+}
+
+.cta-open:hover {
+  background-color: rgb(55, 81, 107);
+}
+
+/* TABLES */
+table {
+    border-collapse: collapse;
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f1f1
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff
+}
+
+th {
+    background-color: rgb(44, 62, 80);
+    color: white;
+}
+
+.goTo, .seeStocks, .logOut {
+  position: absolute;
+  right: 10em;
+  top: 1em;
+  padding: 1em;
+  background-color: rgb(44, 62, 80);
+  color: white;
+  text-decoration: none;
+}
+
+.logOut {
+  right: 3em;
+}
+
+.goTo:hover, .seeStocks:hover, .logOut:hover {
+  background-color: rgb(55, 81, 107);
+}
+
+.twitterLogin {
+  color: white;
+  text-decoration: none;
+  padding: .5em;
+  font-size: 1.25em;
+  background-color: #50A2E1;
+  margin-top: 2em;
+  display: block;
+}
+
+.dashboard {
+  text-align: center;
+}
+
+.md {
+  margin-bottom: 1em;
+}
+
+.cta-user {
+  padding: 1em;
+  font-size: 1em;
+  margin-top: 2em;
+}
+
+.stock_normal {
+  transition: .5s;
+  color: black;
+  font-weight: 200;
+}
+
+.stock_up {
+  transition: .5s;
+  color: green;
+  font-weight: 900;
+}
+
+.stock_down {
+  transition: .5s;
+  color: red;
+  font-weight: 900;
+}
+
+.detail {
+  padding: 1em;
+  text-align: center;
+}
+
+.form {
+  padding: .5em;
+  font-size: 1.2em;
+  margin-top: 1em;
+}
+
+.detail p {
+  padding: 1em;
+  display: inline-block;
+  background-color: #c5d1ff;
+  margin-left: 1em;
+}
+
+input[type=submit] {
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }

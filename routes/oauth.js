@@ -31,6 +31,8 @@ router.get('/', function(req, res) {
     verify: req.query.oauth_verifier,
     secret: req.session.oauthAccessSecret
   }
+  /* CHECK FOR TWITTER SESSION, IF NOT REDIRECT TO THE LOGIN PAGE
+  --------------------------------------------------------------- */
   consumer.get(config.url, config.token, config.secret, function (error, data, response) {
     if(error) {
       res.redirect('/twitter/login');
@@ -38,6 +40,8 @@ router.get('/', function(req, res) {
       const cleanData = JSON.parse(data);
       req.session.login = true;
       req.session.data = cleanData;
+      /* SEE IF USER ALREADY EXISTS IN DATABASE
+      --------------------------------------------------------------- */
       userCollection.findOne({
           username: cleanData.screen_name
       }, function(err, user) {
@@ -52,7 +56,11 @@ router.get('/', function(req, res) {
   });
 });
 
+/* ROUTE FOR TWITTER LOGIN
+--------------------------------------------------------------- */
 router.get('/login', function(req, res) {
+  /* GET REQUEST TOKEN
+  --------------------------------------------------------------- */
   consumer.getOAuthRequestToken(function(error, oauthToken, oauthTokenSecret, results) {
     if (error) {
       console.log(`Error: ${error}`);
@@ -64,12 +72,16 @@ router.get('/login', function(req, res) {
   });
 });
 
+/* CALLBACK ROUTE FOR AFTER LOGGIN IN
+--------------------------------------------------------------- */
 router.get('/callback', function(req, res) {
   const config = {
     token: req.session.ReqToken,
     secret: req.session.ReqSecret,
     verify: req.query.oauth_verifier
   }
+  /* GAIN TWITTER ACCESS
+  --------------------------------------------------------------- */
   consumer.getOAuthAccessToken(config.token, config.secret, config.verify, function(error, token, secret, results) {
     if (error) {
       console.log(error);
