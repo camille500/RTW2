@@ -65,8 +65,9 @@ module.exports = function(io) {
         res.locals.ticker = ticker;
         res.locals.user = req.session.user;
         req.session[ticker] = data[process.env.LATEST]
-        res.locals.buy = true;
-        res.render('stock/detail');
+        res.locals.buy = true;setTimeout(function() {
+          res.render('stock/detail');
+        }, 2000)
       });
     }
   });
