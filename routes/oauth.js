@@ -47,7 +47,7 @@ router.get('/', function(req, res) {
       }, function(err, user) {
         if(user) {
          req.session.user = user;
-         res.redirect('/stock/dashboard');
+         res.redirect('/stock');
        } else {
          res.redirect('/account/setup')
        }
