@@ -1,12 +1,12 @@
 <%- include('../partials/header.ejs') %>
 
   <main class="detail">
-    <h1>Koop aandeel van <%= user.ticker %></h1>
 
     <% if(buy == false) { %>
-      <h3>Je bezit dit aandeel al</h3>
+      <h1>Je bezit dit aandeel al</h1>
       <p>Ga naar je <a href="/stock/dashboard">dashboard</a> voor de laatste prijzen of om je aandelen te verkopen.</p>
     <% } else { %>
+    <h1>Koop aandeel van <%= user.ticker %></h1>
 
     <p>Laatste prijs: €<%= latest %></p>
     <p>Openings prijs: €<%= open %></p>

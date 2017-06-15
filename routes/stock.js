@@ -55,7 +55,6 @@ module.exports = function(io) {
       res.locals.buy = false;
       res.render('stock/detail');
     } else {
-      console.log(stock)
       const url = `${process.env.STOCKAPIURL}${process.env.STOCKGLOBAL}symbol=${ticker}${process.env.STOCKAPIKEY}`;
       /* GET LATEST STOCK INFO, HAS TO BE ACTUAL BECAUSE USER CAN BUY NOW
       --------------------------------------------------------------- */
@@ -63,7 +62,6 @@ module.exports = function(io) {
         const data = JSON.parse(body)[process.env.MAIN];
         res.locals.latest = data[process.env.LATEST];
         res.locals.open = data[process.env.OPEN];
-        console.log(data)
         req.session.user.ticker = ticker;
         res.locals.user = req.session.user;
         req.session[ticker] = data[process.env.LATEST]
