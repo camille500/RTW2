@@ -190,8 +190,8 @@ The message you get to see as soon as your internet connection is down
 ### Clone the repository
 
 ```console
-  git clone https://github.com/camille500/RTW2.git
-  cd RTW2
+git clone https://github.com/camille500/RTW2.git
+cd RTW2
 ```
 
 ### Install all dependencies
