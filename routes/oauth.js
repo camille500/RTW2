@@ -21,6 +21,8 @@ const consumer = new oauth.OAuth(
   'HMAC-SHA1'
 );
 
+//  http://localhost:3000
+
 /* ROUTES
 ----------------------------------------- */
 router.get('/', function(req, res) {
