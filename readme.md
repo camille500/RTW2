@@ -189,21 +189,36 @@ The message you get to see as soon as your internet connection is down
 
 ### Clone the repository
 
-```
+```console
   git clone https://github.com/camille500/RTW2.git
   cd RTW2
 ```
 
 ### Install all dependencies
-```
+```console
 npm install
 ```
 
 ### Add enviroment variables
-Send me a message for the .env variables
+Ask me for the missing variables
+```
+CONSUMERKEY={Twitter Consumer Key}
+CONSUMERSECRET={Twitter Consumer Secret}
+ACCESSTOKEN={Twitter Access Token}
+ACCESSTOKENSECRET={Twitter Access Token Secret}
+MONGODB_URI={MongoDB URI}
+SESSIONSECRET={Session Secret}
+STOCKAPIURL=http://www.alphavantage.co/query?
+STOCKAPIKEY={Stock API Key}
+STOCKGLOBAL=function=GLOBAL_QUOTE&
+STOCKINTRA=function=GLOBAL_QUOTE&
+MAIN=Realtime Global Securities Quote
+LATEST=03. Latest Price
+OPEN=07. Close (Previous Trading Day)
+```
 
 ### Start server
-```
+```console
 npm start
 ```
 
