@@ -16,7 +16,13 @@ require('dotenv').config();
 
 /* ALL AVAILABLE STOCKS
 --------------------------------------------------------------- */
-const allStocks = ['AAPL', 'AMZN', 'GOOGL', 'IBM', 'INTC', 'MSFT', 'FB', 'TSLA', 'TWTR', 'YHOO', 'ADBE', 'EBAY', 'NFLX', 'TRIP', 'ATVI']
+const allStocks = [
+  'AAPL', 'AMZN', 'GOOGL',
+  'IBM', 'INTC', 'MSFT',
+  'FB', 'TSLA', 'TWTR',
+  'YHOO', 'ADBE', 'EBAY',
+  'NFLX', 'TRIP', 'ATVI'
+]
 
 /* CONFIGURE MONGODB
 --------------------------------------------------------------- */

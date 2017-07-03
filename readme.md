@@ -156,7 +156,9 @@ The overview with all users and their actual saldo
 ![Offline message](screenshots/6.png)
 The message you get to see as soon as your internet connection is down
 
-## Used packages
+## Dependencies
+This is the list with all used packages needed to run the application. They can be installed using `npm install` in the console when in the folder.
+
 * [x] [`Body-parser`](https://www.npmjs.com/package/body-parser) Middleware for body parsing
 * [x] [`Dotenv`](https://www.npmjs.com/package/dotenv) Load enviroment variables from .env files
 * [x] [`EJS`](https://www.npmjs.com/package/ejs) Templating library (Embedded JavaScript templates)
@@ -169,6 +171,11 @@ The message you get to see as soon as your internet connection is down
 * [x] [`Path`](https://www.npmjs.com/package/path) For using paths
 * [x] [`oAuth`](https://www.npmjs.com/package/oauth) oAuth API for NodeJS
 * [x] [`HTTP`](https://www.npmjs.com/package/socket.io) Package for HTTP servers
+
+## Dev-dependencies
+This are the packages for developing, these are not necessary for the application to work.
+
+* [x] [`Nodemon`](https://npmjs.com/package/nodemon) Run your app while restarting on changes in files
 
 ## Finished ToDo's
 * [x] Enable oAuth for logging in with Twitter
