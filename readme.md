@@ -21,6 +21,10 @@ To see all users and their saldo, click on the 'Bekijk alle users' button under 
 - Live portfolio view to see the profits or losses you've made
 - Overview of other people's saldo
 
+## Data model
+This is the data model of this application. It shows the communication between server, api, web socket and the Twitter oAuth process. 
+![Data model](screenshots/datamodel.png)
+
 ### Single features
 
 ***Check if user is logged in***
