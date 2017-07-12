@@ -20,7 +20,6 @@ module.exports = function(io) {
   /* DASHBOARD ROUTER
   --------------------------------------------------------------- */
   router.get('/dashboard', checkForSession, findAll, getPortfolio, function(req, res) {
-    console.log(req.session.data);
     res.locals.user = req.session.user;
     res.locals.portfolio = req.session.portfolio;
     res.locals.stock = req.session.stock;
