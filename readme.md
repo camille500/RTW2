@@ -22,8 +22,8 @@ To see all users and their saldo, click on the 'Bekijk alle users' button under 
 - Overview of other people's saldo
 
 ## Data model
-This is the data model of this application. It shows the communication between server, api, web socket and the Twitter oAuth process. 
-![Data model](screenshots/datamodel.png)
+This is the data model of this application. It shows the communication between server, api, web socket and the Twitter oAuth process.   
+![Data model](screenshots/datamodel.jpg)
 
 ### Single features
 
